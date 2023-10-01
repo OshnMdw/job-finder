@@ -3,6 +3,7 @@ import Job from '../../assets/characters-looking-job.jpg'
 import { Button, Col, Container, Form, Row, Image } from "react-bootstrap";
 import Font from 'react-font'
 import './homepageStyle.css'
+import Searchbar from '../../components/Searchbar';
 
 function HomepageView() {
   return (
@@ -14,17 +15,7 @@ function HomepageView() {
                 <h1 className='job-text'>5000+ JOBS</h1>
                 <h6 className='sub-text'>Great platform for the job seeker that searching for <br/> new career heights and passionate about startups.</h6>
             </Font>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search Jobs"
-                className="me-2 rounded-pill"
-                aria-label="Search"
-              />
-            <Button className="rounded-pill" variant="outline-primary">
-              Search
-            </Button>
-          </Form>
+            <Searchbar/>
         </Col>
         <Col style={{ marginLeft: '5rem' }}>
           <Image style={{ width: 800, height: 630}} src={Job}/>
