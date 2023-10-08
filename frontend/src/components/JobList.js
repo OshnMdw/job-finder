@@ -7,7 +7,8 @@ function JobList({ jobs }) {
       {jobs.map((job, index) => (
         <JobItem
           key={index}
-          title={job.company.display_name} 
+          company = {job.company.display_name}
+          title={job.title} 
           location={job.location.display_name} 
           salary={job.salary_max} 
           description={job.description} 

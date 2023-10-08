@@ -27,7 +27,7 @@ function Searchbar() {
 
   return (
     <div>
-      <Form className="d-flex">
+      <Form className="d-flex m-5">
         <Form.Control
           type="job"
           placeholder="Job Title"
