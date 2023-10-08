@@ -15,12 +15,13 @@ function HomepageView() {
                 <h1 className='job-text'>5000+ JOBS</h1>
                 <h6 className='sub-text'>Great platform for the job seeker that searching for <br/> new career heights and passionate about startups.</h6>
             </Font>
-            <Searchbar/>
+            
         </Col>
         <Col style={{ marginLeft: '5rem' }}>
           <Image style={{ width: 800, height: 630}} src={Job}/>
         </Col>
       </Row>
+      <Searchbar/>
     </Container>
   )
 }

@@ -1,16 +1,18 @@
 import React from "react";
+import JobItem from "./JobItem";
 
 function JobList({ jobs }) {
   return (
     <div>
       {jobs.map((job, index) => (
-        <div key={index} className="job-list-item">
-          <h3>{job.title}</h3>
-          <p>Location: {job.location}</p>
-          <p>Salary: {job.salary}</p>
-          <p>Description: {job.description}</p>
-          <button>Apply</button>
-        </div>
+        <JobItem
+          key={index}
+          title={job.company.display_name} 
+          location={job.location.display_name} 
+          salary={job.salary_max} 
+          description={job.description} 
+          url={job.redirect_url} 
+        />
       ))}
     </div>
   );

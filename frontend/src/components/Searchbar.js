@@ -7,29 +7,23 @@ function Searchbar() {
   const [locationInput, setLocationInput] = useState("");
   const [jobs, setJobs] = useState([]);
 
-  const handleSearch = async (jobInput, locationInput) => {
-    try {
-      const response = await fetch(`http://localhost:3000/?search=${encodeURIComponent(
-        jobInput
-      )}&location=${encodeURIComponent(locationInput)}`);
+  const handleSearch = () => {
+    const response = `http://localhost:3000/?search=${encodeURIComponent(
+      jobInput
+    )}&location=${encodeURIComponent(locationInput)}`;
 
-      console.log("Response from API:", response);
-  
-      const data = await response.json();
-      console.log("Data from API:", data);
-  
-      // Check if there are job results
-      if (data.results && data.results.length > 0) {
-        setJobs(data.results);
-      } else {
-        setJobs([]); // Set jobs to an empty array if there are no results
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    // Fetch job data from the server or API and update the 'jobs' state
+    fetch(response)
+      .then((response) => response.json())
+      .then((data) => {
+        setJobs(data.results); // Assuming the job data is in the 'results' field
+        console.log(data.results)
+      })
+      .catch((error) => {
+        console.error("Error fetching job data:", error);
+        setJobs([]); // Clear job list on error
+      });
   };
-  
-  
 
   return (
     <div>
