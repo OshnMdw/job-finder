@@ -11,7 +11,7 @@ function JobItem({ company, title, location, salary, description, url }) {
         <Card.Text className="mb-2">Salary: {salary}</Card.Text>
         <Card.Text className="mb-2">{description}</Card.Text>
         <Button href={url} target="_blank" variant="primary">
-          Apply Job
+          View Job
         </Button>
       </Card.Body>
     </Card>
