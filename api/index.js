@@ -4,19 +4,21 @@ const axios = require("axios");
 const chalk = require("chalk");
 const config = require("./config");
 
-const headers = {
+//define some HTTP Headers to control CORS( Cross-Origin Resource Sharing)
+const headers = {     
   "Content-Type": "application/json",
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET",
 };
 
-// ?search=php&location=london
+// ?search=php&location=london => {search: 'php' , location: 'london'}
 const decodeParams = (searchParams) =>
   Array.from(searchParams.keys()).reduce(
     (acc, key) => ({ ...acc, [key]: searchParams.get(key) }),
     {}
   );
 
+// A callback function to handle each incoming HTTP request and outgoing HTTP response
 const server = createServer((req, res) => {
   const requestURL = url.parse(req.url);
   // {search: 'php' , location: 'london'}
